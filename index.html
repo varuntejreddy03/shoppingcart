@@ -3,67 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MyStore - Enhanced</title>
+  <title>Shopping Cart</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <h1>🛒 Online Store</h1>
 
-  <!-- Header -->
-  <header class="navbar">
-    <div class="logo">🛒 MyStore</div>
-    <input type="text" id="search" placeholder="Search products...">
-    <button class="cart-btn" onclick="toggleCart()">
-      🛍️ Cart (<span id="cart-count">0</span>)
-    </button>
-    <button class="wishlist-btn" onclick="toggleWishlist()">❤️ Wishlist (<span id="wishlist-count">0</span>)</button>
-    <button class="dark-btn" onclick="toggleDarkMode()">🌙</button>
-  </header>
+  <!-- Product Catalog -->
+  <div id="product-catalog"></div>
 
-  <main class="layout">
-    <!-- Sidebar Categories -->
-    <aside class="sidebar">
-      <h3>Categories</h3>
-      <ul>
-        <li onclick="filterCategory('All')">All</li>
-        <li onclick="filterCategory('Laptop')">Laptops</li>
-        <li onclick="filterCategory('Smartphone')">Smartphones</li>
-        <li onclick="filterCategory('Headphones')">Headphones</li>
-        <li onclick="filterCategory('Smartwatch')">Smartwatches</li>
-        <li onclick="filterCategory('Tablet')">Tablets</li>
-        <li onclick="filterCategory('Console')">Consoles</li>
-      </ul>
-    </aside>
+  <!-- Cart Section -->
+  <h2>Your Cart</h2>
+  <div id="cart-items"></div>
+  <p id="empty-cart-message">Your cart is empty</p>
 
-    <!-- Product Catalog -->
-    <section class="content">
-      <div id="product-catalog" class="grid"></div>
-    </section>
-  </main>
+  <div class="totals">
+    <p>Subtotal: $<span id="subtotal">0.00</span></p>
+    <p>Discount: $<span id="discount">0.00</span></p>
+    <p>Tax: $<span id="tax">0.00</span></p>
+    <p><b>Total: $<span id="total">0.00</span></b></p>
+  </div>
 
-  <!-- Cart Popup -->
-  <section id="cart-popup" class="cart-popup" style="display:none;">
-    <h2>Your Cart</h2>
-    <div id="cart-items"></div>
-    <p id="empty-cart-message">Your cart is empty</p>
-    <div class="totals">
-      <p>Subtotal: $<span id="subtotal">0.00</span></p>
-      <p>Discount: $<span id="discount">0.00</span></p>
-      <p>Tax: $<span id="tax">0.00</span></p>
-      <p><b>Total: $<span id="total">0.00</span></b></p>
-    </div>
-    <input type="text" id="promo-code" placeholder="Promo code">
+  <!-- Promo Code -->
+  <div class="promo-section">
+    <input type="text" id="promo-code" placeholder="Enter promo code">
     <button id="apply-promo">Apply Promo</button>
-    <button id="checkout-btn">Checkout</button>
-  </section>
+  </div>
 
-  <!-- Wishlist Popup -->
-  <section id="wishlist-popup" class="cart-popup" style="display:none;">
-    <h2>❤️ Your Wishlist</h2>
-    <div id="wishlist-items"></div>
-    <p id="empty-wishlist">No items saved</p>
-  </section>
+  <!-- Checkout -->
+  <button id="checkout-btn">Checkout</button>
 
-  <!-- Checkout Form -->
   <div id="checkout-form" style="display:none;">
     <h3>Shipping Details</h3>
     <input id="full-name" placeholder="Full Name"><br>
@@ -71,20 +40,21 @@
     <input id="city" placeholder="City"><br>
     <input id="state" placeholder="State"><br>
     <input id="zip" placeholder="Zip"><br>
+    <button id="shipping-continue">Continue to Payment</button>
 
     <h3>Payment</h3>
     <input id="card-number" placeholder="Card Number"><br>
     <input id="expiry" placeholder="MM/YY"><br>
     <input id="cvv" placeholder="CVV"><br>
-
     <button id="place-order-button">Place Order</button>
   </div>
 
   <!-- Receipt -->
-  <div id="receipt-content"></div>
+  <div id="receipt" style="display:none;">
+    <h3>✅ Order Confirmation</h3>
+    <div id="receipt-content"></div>
+  </div>
 
-  <!-- Scripts -->
-  <script src="products_1000.js"></script>
   <script src="shoppingCart.js"></script>
 </body>
 </html>
