@@ -117,9 +117,11 @@ document.getElementById("place-order-button").addEventListener("click", () => {
 
   document.getElementById("receipt").style.display = "block";
   document.getElementById("receipt-content").innerHTML = `
+    <h3>Order Confirmation</h3>
     <p>Thank you, ${name}!</p>
     <p>Total Paid: $${total}</p>
   `;
+
 
   cart = [];
   renderCart();
